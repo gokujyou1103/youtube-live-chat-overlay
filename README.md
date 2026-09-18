@@ -5,22 +5,15 @@ YouTube Live Chatのpop-outページをそのままElectronで表示し、ペー
 
 [こちらのリリースノートページ](https://github.com/gokujyou1103/youtube-live-chat-overlay/releases/tag/v1.0.0)からインストーラーをダウンロードしてください。
 
-## 起動
+## アプリケーションの使用方法
 
-Node.js 20以降をインストールした環境で、このフォルダをPowerShellまたはコマンドプロンプトで開きます。
-
-```powershell
-npm install
-npm start
-```
-
-起動後、次の形式のURLを入力します。
+YouTube-Live-Chat-Overlay-Portable-バージョン名-x64.exe起動後、次の形式のURLを入力します。
 
 ```text
 https://www.youtube.com/live_chat?is_popout=1&v=VIDEO_ID
 ```
 
-URL入力欄では右クリックメニューから切り取り、コピー、貼り付け、削除、すべて選択を使用できます。
+もしくはYoutubeのコメントからポップアウトさせたウィンドウからURL取得すれば同一のものを取得できるのでそれをペーストしてください。
 
 タイトルバーの歯車ボタンから表示設定を開けます。背景の不透過度（0～100%、100%で選択テーマ色の背景）、文字サイズ（50～200%）、白文字＋黒縁、常に最前面のON/OFF、テーマ色（灰色・白色・ピンク・水色・緑色）は「変更を適用」を押したときに保存され、設定画面が閉じます。設定画面下部の「閉じる」「変更を適用」はスクロール中も固定表示されます。不透過度とテーマ色は選択中にプレビューでき、適用せず閉じた場合は保存済みの値へ戻ります。`—` ボタンを押すとスクロール不能なタイトルバーだけの表示になり、もう一度押すと元のサイズへ戻ります。
 
@@ -40,19 +33,6 @@ YouTubeの案内カード背景も、同じテーマ色と追加不透過度へ�
 タイトルバーの「←」ボタンでも、チャット表示からURL入力画面へ戻れます。
 
 透明化を維持するため、常時見えるカスタムタイトルバー、青いウィンドウ枠、閉じるボタンを表示します。タイトルバーをドラッグして移動できます。
-
-## 実装上のポイント
-
-- `BrowserWindow` は `transparent: true`、`frame: false`、`alwaysOnTop: true`、`resizable: true`
-- `nodeIntegration: false`、`contextIsolation: true`、`sandbox: true`
-- DevToolsは無効化（`devTools: false`）
-- preloadが公開するIPC APIはローカル入力画面だけで有効
-- 許可する遷移先はHTTPSの `youtube.com/live_chat` のみ
-- YouTubeのDOMには背景・文字・入力パネル表示を調整するCSSのみを注入し、コメントの取得・解析・再構成は行わない
-- チャット下部のログイン／メッセージ入力パネルはCSSで非表示
-- YouTubeのコメントや各種メッセージはYouTube自身の描画結果をそのまま表示
-
-YouTube側のDOM構造が変更された場合は、`main.js` の `transparentChatCss` に背景を持つ新しいコンテナのセレクターを追加してください。
 
 ## Windows用EXEの作成
 
