@@ -1,6 +1,9 @@
 # YouTube Live Chat Overlay PoC
 
 YouTube Live Chatのpop-outページをそのままElectronで表示し、ページ背景だけを透明化するWindows 11向けPoCです。YouTube Data API、APIキー、コメントのスクレイピング、独自UIへの再描画は使用しません。
+## インストーラーでのダウンロード
+
+[こちらのリリースノートページ](https://github.com/gokujyou1103/youtube-live-chat-overlay/releases/tag/v1.0.0)からインストーラーをダウンロードしてください。
 
 ## 起動
 
