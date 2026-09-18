@@ -1,0 +1,27 @@
+yt-live-chat-text-message-renderer #message,
+yt-live-chat-text-message-renderer #author-name,
+yt-live-chat-text-message-renderer #timestamp,
+yt-live-chat-paid-message-renderer #message,
+yt-live-chat-paid-message-renderer #author-name,
+yt-live-chat-paid-message-renderer #timestamp,
+yt-live-chat-paid-message-renderer #purchase-amount,
+yt-live-chat-paid-sticker-renderer #author-name,
+yt-live-chat-paid-sticker-renderer #purchase-amount,
+yt-live-chat-membership-item-renderer #message,
+yt-live-chat-membership-item-renderer #author-name,
+yt-live-chat-membership-item-renderer #header-subtext,
+yt-live-chat-header-renderer #trigger #label,
+yt-live-chat-header-renderer #trigger #label *,
+yt-live-chat-header-renderer yt-button-view-model .yt-core-attributed-string,
+yt-live-chat-header-renderer .yt-spec-button-shape-next__button-text-content,
+yt-live-chat-viewer-engagement-message-renderer #message,
+yt-live-chat-mode-change-message-renderer #text,
+yt-live-chat-restricted-participation-renderer #message,
+yt-live-chat-banner-renderer #contents,
+yt-live-chat-banner-header-renderer #text,
+yt-live-chat-auto-mod-message-renderer #message {
+  color: revert !important;
+  -webkit-text-fill-color: revert !important;
+  -webkit-text-stroke: revert !important;
+  text-shadow: revert !important;
+}

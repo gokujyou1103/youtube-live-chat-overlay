@@ -1,0 +1,41 @@
+:root, html, body, yt-live-chat-app, yt-live-chat-renderer,
+  #contents, #chat, #chat-messages, #item-list, #items,
+  #ticker, #ticker-content, #header, #separator, #panel-pages, #panel-page,
+  #live-chat-viewer-engagement-message, #live-chat-header-context-menu,
+  #input-panel, #input-panel.yt-live-chat-renderer,
+  yt-live-chat-item-list-renderer, yt-live-chat-header-renderer,
+  yt-live-chat-message-input-renderer {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+  #header.yt-live-chat-renderer,
+  yt-live-chat-header-renderer {
+    background: var(--overlay-header-background) !important;
+    background-color: var(--overlay-header-background) !important;
+  }
+
+  yt-live-chat-viewer-engagement-message-renderer {
+    --yt-live-chat-viewer-engagement-message-background-color: var(--overlay-header-background) !important;
+    background: var(--overlay-header-background) !important;
+    background-color: var(--overlay-header-background) !important;
+    box-shadow: none !important;
+  }
+
+  yt-live-chat-viewer-engagement-message-renderer #content,
+  yt-live-chat-viewer-engagement-message-renderer #card,
+  yt-live-chat-viewer-engagement-message-renderer #live-chat-viewer-engagement-message {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  yt-live-chat-renderer > #input-panel,
+  #input-panel.yt-live-chat-renderer,
+  yt-live-chat-message-input-renderer {
+    display: none !important;
+    visibility: hidden !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }

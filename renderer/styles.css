@@ -1,0 +1,170 @@
+@import url('./themes.css');
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: transparent;
+}
+
+body { padding: 2px; }
+
+html.window-collapsed,
+body.window-collapsed {
+  height: 40px;
+  min-height: 40px;
+  overflow: hidden !important;
+}
+
+body.window-collapsed {
+  padding: 0;
+}
+
+.window-collapsed .content {
+  display: none !important;
+}
+
+.window-collapsed .panel {
+  height: 40px;
+  overflow: hidden;
+}
+
+.resize-handle {
+  -webkit-app-region: no-drag;
+  position: fixed;
+  z-index: 2147483647;
+}
+
+.resize-n, .resize-s { right: 8px; left: 8px; height: 8px; }
+.resize-e, .resize-w { top: 8px; bottom: 8px; width: 8px; }
+.resize-n { top: 0; cursor: ns-resize; }
+.resize-s { bottom: 0; cursor: ns-resize; }
+.resize-e { right: 0; cursor: ew-resize; }
+.resize-w { left: 0; cursor: ew-resize; }
+.resize-ne, .resize-nw, .resize-se, .resize-sw { width: 12px; height: 12px; }
+.resize-ne { top: 0; right: 0; cursor: nesw-resize; }
+.resize-nw { top: 0; left: 0; cursor: nwse-resize; }
+.resize-se { right: 0; bottom: 0; cursor: nwse-resize; }
+.resize-sw { bottom: 0; left: 0; cursor: nesw-resize; }
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  border: 2px solid rgba(90, 170, 255, 0.95);
+  pointer-events: none;
+  z-index: 2147483647;
+}
+
+body.click-through-enabled::after {
+  border-color: #7cfc00;
+}
+
+.panel {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: var(--panel-bg);
+  color: var(--text-color);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.42);
+}
+
+.chat-active .panel {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.chat-active .content {
+  visibility: hidden;
+}
+
+.titlebar {
+  -webkit-app-region: drag;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  padding-left: 16px;
+  background: var(--titlebar-bg);
+  color: var(--text-color);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+button, input { -webkit-app-region: no-drag; }
+
+.window-controls {
+  -webkit-app-region: no-drag;
+  display: flex;
+  align-self: stretch;
+}
+
+.icon-button {
+  width: 46px;
+  height: 36px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  background-color: #f2f2f2;
+  color: #080808;
+  font-size: 22px;
+  transition: none;
+}
+
+.settings-button { font-size: 16px; }
+.back-button { font-size: 21px; }
+.icon-button:disabled { opacity: 0.42; cursor: default; }
+.back-button:hover:not(:disabled),
+.settings-button:hover,
+.minimize-button:hover {
+  background: none;
+  background-color: #00aaff;
+  color: #080808;
+}
+
+.close-button:hover {
+  background: none;
+  background-color: #ff0000;
+  color: #080808;
+}
+
+.content { padding: 20px; }
+h1 { margin: 0 0 8px; font-size: 22px; }
+p { color: var(--muted-color); line-height: 1.5; }
+form { display: grid; gap: 9px; margin-top: 22px; }
+label { font-size: 13px; font-weight: 600; }
+
+input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 7px;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+input:focus { border-color: #3ea6ff; box-shadow: 0 0 0 2px rgba(62, 166, 255, 0.2); }
+button { cursor: pointer; }
+
+.primary, .actions button {
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.primary { background: #f03; }
+.primary:hover { background: #d9002b; }
+.actions { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
+.actions button { border-color: var(--input-border); background: var(--button-bg); color: var(--text-color); }
+.actions button:hover { background: var(--button-hover); }
+.error { min-height: 22px; margin: 8px 0 0; color: #ff8e8e; font-size: 13px; }
+.shortcuts { margin: 18px 0 0; color: var(--muted-color); font-size: 12px; }
+.shortcuts div { display: flex; gap: 10px; margin: 7px 0; }
+.shortcuts dt { min-width: 58px; color: var(--text-color); font-weight: 700; }
+.shortcuts dd { margin: 0; }

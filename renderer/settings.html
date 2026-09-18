@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Overlay 設定</title>
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <main>
+      <h1>表示設定</h1>
+
+      <section class="setting-row">
+        <div class="setting-heading">
+          <label for="background-opacity">背景の不透過度</label>
+          <output id="background-opacity-value" for="background-opacity">0%</output>
+        </div>
+        <input id="background-opacity" type="range" min="0" max="100" step="1" />
+        <p>0%は完全透過、100%は選択したテーマ色の不透過背景です。</p>
+      </section>
+
+      <section class="setting-row">
+        <div class="setting-heading">
+          <label for="font-scale">文字サイズ</label>
+          <output id="font-scale-value" for="font-scale">100%</output>
+        </div>
+        <input id="font-scale" type="range" min="50" max="200" step="5" />
+        <p>50%から200%まで変更できます。</p>
+      </section>
+
+      <section class="check-settings">
+        <label class="check-row" for="outlined-text">
+          <input id="outlined-text" type="checkbox" />
+          <span>
+            <strong>白文字＋黒縁</strong>
+            <small>チャットの文字を白くし、黒い縁取りを追加します。</small>
+          </span>
+        </label>
+
+        <label class="check-row" for="always-on-top">
+          <input id="always-on-top" type="checkbox" />
+          <span>
+            <strong>常に最前面に表示</strong>
+            <small>他のウィンドウより手前に表示します。</small>
+          </span>
+        </label>
+      </section>
+
+      <fieldset class="theme-settings">
+        <legend>テーマ色</legend>
+        <div class="theme-grid">
+          <label class="theme-choice gray-theme">
+            <input type="radio" name="theme" value="gray" />
+            <span class="theme-swatch"></span>
+            <span>灰色</span>
+          </label>
+          <label class="theme-choice white-theme">
+            <input type="radio" name="theme" value="white" />
+            <span class="theme-swatch"></span>
+            <span>白色</span>
+          </label>
+          <label class="theme-choice pink-theme">
+            <input type="radio" name="theme" value="pink" />
+            <span class="theme-swatch"></span>
+            <span>ピンク</span>
+          </label>
+          <label class="theme-choice blue-theme">
+            <input type="radio" name="theme" value="blue" />
+            <span class="theme-swatch"></span>
+            <span>水色</span>
+          </label>
+          <label class="theme-choice green-theme">
+            <input type="radio" name="theme" value="green" />
+            <span class="theme-swatch"></span>
+            <span>緑色</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <footer>
+        <div class="footer-buttons">
+          <button id="close-settings" type="button">閉じる</button>
+          <button id="apply-settings" class="primary" type="button">変更を適用</button>
+        </div>
+      </footer>
+    </main>
+    <script src="settings.js"></script>
+  </body>
+</html>

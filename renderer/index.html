@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Live Chat Overlay</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="resize-handle resize-n" data-resize="n"></div>
+    <div class="resize-handle resize-s" data-resize="s"></div>
+    <div class="resize-handle resize-e" data-resize="e"></div>
+    <div class="resize-handle resize-w" data-resize="w"></div>
+    <div class="resize-handle resize-ne" data-resize="ne"></div>
+    <div class="resize-handle resize-nw" data-resize="nw"></div>
+    <div class="resize-handle resize-se" data-resize="se"></div>
+    <div class="resize-handle resize-sw" data-resize="sw"></div>
+    <main class="panel">
+      <header class="titlebar">
+        <span>Live Chat Overlay</span>
+        <div class="window-controls">
+          <button id="back" class="icon-button back-button" type="button" aria-label="URL入力画面に戻る" title="URL入力画面に戻る" disabled>←</button>
+          <button id="settings" class="icon-button settings-button" type="button" aria-label="設定" title="設定">⚙︎</button>
+          <button id="minimize" class="icon-button minimize-button" type="button" aria-label="バーだけ表示／元に戻す" title="バーだけ表示／元に戻す">—</button>
+          <button id="close" class="icon-button close-button" type="button" aria-label="閉じる" title="閉じる">×</button>
+        </div>
+      </header>
+
+      <section class="content">
+        <h1>YouTube Live Chat</h1>
+        <p>Live Chatのpop-out URLを入力してください。</p>
+
+        <form id="url-form">
+          <label for="chat-url">Pop-out URL</label>
+          <input
+            id="chat-url"
+            name="chat-url"
+            type="url"
+            required
+            spellcheck="false"
+            autocomplete="url"
+            placeholder="https://www.youtube.com/live_chat?is_popout=1&v=VIDEO_ID"
+          />
+          <button class="primary" type="submit">チャットを表示</button>
+        </form>
+
+        <p id="error" class="error" role="alert" aria-live="polite"></p>
+
+        <div class="actions">
+          <button id="click-through" type="button">マウス透過: OFF</button>
+        </div>
+
+        <dl class="shortcuts">
+          <div><dt>Ctrl+Shift+9</dt><dd>マウス透過 ON/OFF</dd></div>
+          <div><dt>Ctrl + L</dt><dd>この入力画面に戻る</dd></div>
+          <div><dt>Ctrl+Shift+Q</dt><dd>アプリを終了</dd></div>
+        </dl>
+      </section>
+    </main>
+    <script src="renderer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+node_modules/
+dist/
+dist-no-npm/
+.build-cache/
+npm-debug.log*

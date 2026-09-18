@@ -1,0 +1,48 @@
+{
+  "name": "youtube-live-chat-overlay-poc",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Transparent always-on-top Electron overlay for the YouTube Live Chat pop-out page",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win nsis portable --x64",
+    "test": "node --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "26.16.1"
+  },
+  "build": {
+    "appId": "jp.local.youtube-live-chat-overlay",
+    "productName": "YouTube Live Chat Overlay",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "package.json",
+      "lib/**/*"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "artifactName": "YouTube-Live-Chat-Overlay-Setup-${version}-${arch}.${ext}",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "portable": {
+      "artifactName": "YouTube-Live-Chat-Overlay-Portable-${version}-${arch}.${ext}"
+    }
+  }
+}
