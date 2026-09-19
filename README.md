@@ -63,7 +63,11 @@ ElectronアプリはランタイムDLLやリソースも必要なため、`exe`�
 
 ## 開発用の構成
 
-- `main.js`: ウィンドウ・表示状態・IPCの制御
+- `main.js`: Electronの起動と各コンポーネントの組み立て
+- `lib/main/overlay-controller.js`: 表示状態とユースケースを扱うコントローラー
+- `lib/main/window-view.js`: メイン・設定ウィンドウを生成するビュー
+- `lib/main/ipc.js`: RendererからControllerへのIPCルーティング
+- `lib/main/chat-url.js`: YouTube Live Chat URLの検証
 - `lib/settings.js`: 設定の検証・保存とテーマ背景色
 - `lib/chat-style.js`: 非同期CSS更新の管理
 - `lib/chat-base.css` / `lib/chat-outline.css`: YouTube表示用CSS
