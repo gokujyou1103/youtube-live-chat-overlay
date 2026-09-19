@@ -5,6 +5,15 @@ const os = require('node:os');
 const path = require('node:path');
 const { DEFAULT_SETTINGS, normalizeSettings, SettingsStore, backgroundColor } = require('../lib/settings');
 const { ChatStyle } = require('../lib/chat-style');
+const { isAllowedChatUrl } = require('../lib/main/chat-url');
+
+test('only YouTube live chat URLs are accepted', () => {
+  assert.equal(isAllowedChatUrl('https://www.youtube.com/live_chat?is_popout=1&v=abc'), true);
+  assert.equal(isAllowedChatUrl('https://youtube.com/live_chat?v=abc'), true);
+  assert.equal(isAllowedChatUrl('http://www.youtube.com/live_chat?v=abc'), false);
+  assert.equal(isAllowedChatUrl('https://evil.example/live_chat?v=abc'), false);
+  assert.equal(isAllowedChatUrl('not a URL'), false);
+});
 
 test('legacy and malformed settings normalize without losing valid preferences', () => {
   assert.deepEqual(normalizeSettings(null), DEFAULT_SETTINGS);
